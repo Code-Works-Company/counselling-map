@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, memo } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { default as OLMap } from 'ol/Map.js'
 import TileLayer from 'ol/layer/Tile.js'
 import View from 'ol/View.js'
@@ -9,7 +9,7 @@ import OSM from 'ol/source/OSM.js'
 import { icon } from '../mapFeatures'
 import StadiaMaps from 'ol/source/StadiaMaps'
 
-export default function Map({ schools, setOpen }) {
+export default function Map({ markers, schools, setOpen, setSchool }) {
   useGeographic()
   const ref = useRef(null)
   const mapRef = useRef(null)
@@ -38,8 +38,8 @@ export default function Map({ schools, setOpen }) {
     }
     const map = mapRef.current
 
-    const markers = schools.map((school) =>
-      icon(school.location, 'school', school.logo, 0.5, [0.5, 100])
+    const pins = markers.map((school) =>
+      icon(school.location, school.name, school.logo, 0.5, [0.5, 100])
     )
 
     map
@@ -49,7 +49,7 @@ export default function Map({ schools, setOpen }) {
       .forEach((layer) => map.removeLayer(layer))
 
     const vectorSource = new VectorSource({
-      features: markers,
+      features: pins,
     })
 
     map.addLayer(
@@ -76,6 +76,9 @@ export default function Map({ schools, setOpen }) {
         return feature
       })
       setOpen(false)
+      setSchool(
+        schools.find((school) => school.school_name === feature.values_.name)
+      )
       if (!feature) {
         return
       }

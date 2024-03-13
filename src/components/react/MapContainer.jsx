@@ -24,11 +24,12 @@ export default function MapContainer() {
   const [school, setSchool] = useState({})
 
   return (
-    <div class='relative p-8 font-sans'>
+    <div className='relative p-8 font-sans'>
       <Map
         markers={data.schools.map((school) => ({
           location: [school.longitude, school.latitude],
-          logo: '/school.webp',
+          pin: '/pin.png',
+          logo_url: school.logo_url,
           name: school.school_name,
         }))}
         setOpen={setOpen}
@@ -40,7 +41,7 @@ export default function MapContainer() {
         open={open}
         onClose={() => setOpen(false)}
       >
-        <Dialog.Panel className='bg-white min-w-[480px] gap-4 flex flex-col p-4 rounded-lg leading-none relative'>
+        <Dialog.Panel className='bg-white min-w-[480px] gap-4 flex flex-col p-6 rounded-lg leading-none relative'>
           <div>
             <Dialog.Title className='text-lg font-semibold whitespace-nowrap leading-none tracking-tight'>
               {school?.school_name}
@@ -49,36 +50,33 @@ export default function MapContainer() {
               {school?.school_address}
             </h3>
           </div>
-          <Dialog.Description className='text-sm'>
-            <div className='grid gap-4'>
-              <div className='grid grid-cols-2 gap-3 text-sm'>
-                <div className='flex flex-col'>
-                  <dt className='font-semibold'>Counselor</dt>
-                  <dd>{school?.counselor_name}</dd>
-                </div>
-                <div className='flex flex-col '>
-                  <dt className='font-semibold'>Email</dt>
-                  <dd>{school?.counselor_email}</dd>
-                </div>
-                <div className='flex flex-col '>
-                  <dt className='font-semibold'>Phone</dt>
-                  <dd>{school?.counselor_phone}</dd>
-                </div>
-                <div className='flex flex-col '>
-                  <dt className='font-semibold'>Contact Point</dt>
-                  <dd>{school?.contact_point}</dd>
-                </div>
-                <div className='flex flex-col '>
-                  <dt className='font-semibold'>Preferred time</dt>
-                  <dd>{school?.preferred_time}</dd>
-                </div>
+          <div className='grid gap-4 text-sm'>
+            <div className='grid grid-cols-2 gap-3 text-sm'>
+              <div className='flex flex-col'>
+                <dt className='font-semibold'>Counselor</dt>
+                <dd>{school?.counselor_name}</dd>
               </div>
-              <div className='font-semibold flex flex-row gap-4 text-sm'>
-                <Links school={school} />
+              <div className='flex flex-col '>
+                <dt className='font-semibold'>Email</dt>
+                <dd>{school?.counselor_email}</dd>
+              </div>
+              <div className='flex flex-col '>
+                <dt className='font-semibold'>Phone</dt>
+                <dd>{school?.counselor_phone}</dd>
+              </div>
+              <div className='flex flex-col '>
+                <dt className='font-semibold'>Contact Point</dt>
+                <dd>{school?.contact_point}</dd>
+              </div>
+              <div className='flex flex-col '>
+                <dt className='font-semibold'>Preferred time</dt>
+                <dd>{school?.preferred_time}</dd>
               </div>
             </div>
-          </Dialog.Description>
-
+            <div className='font-semibold flex flex-row gap-4 text-sm'>
+              <Links school={school} />
+            </div>
+          </div>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 20 20'

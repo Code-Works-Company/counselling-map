@@ -12,7 +12,8 @@
       "preferred_time": "9am - 3pm",
       "school_profile": "https://www.concordiahanoi.org/",
       "school_website": "https://www.concordiahanoi.org/",
-      "calendar": "https://www.concordiahanoi.org/"
+      "calendar": "https://www.concordiahanoi.org/",
+      "logo_url": "/cish.png"
     },
     {
       "school_name": "UNIS International School Hanoi",
@@ -26,7 +27,8 @@
       "preferred_time": "9am - 3pm",
       "school_profile": "https://www.concordiahanoi.org/",
       "school_website": "https://www.concordiahanoi.org/",
-      "calendar": "https://www.concordiahanoi.org/"
+      "calendar": "https://www.concordiahanoi.org/",
+      "logo_url": "/cish.png"
     }
   ]
 }

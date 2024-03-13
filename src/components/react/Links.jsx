@@ -21,6 +21,7 @@ export default function Links({ school }) {
       href={link.href}
       target='_blank'
       className='flex gap-0.5 hover:underline underline-offset-2 flex-row items-center hover:text-black'
+      key={link.name}
     >
       {link.name}{' '}
       <svg

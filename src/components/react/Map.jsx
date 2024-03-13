@@ -84,6 +84,12 @@ export default function Map({ markers, schools, setOpen, setSchool }) {
       }
       setOpen(true)
     })
+
+    map.on('pointermove', function (e) {
+      const pixel = map.getEventPixel(e.originalEvent)
+      const hit = map.hasFeatureAtPixel(pixel)
+      map.getTarget().style.cursor = hit ? 'pointer' : ''
+    })
   }, [ref, mapRef, schools])
 
   return (

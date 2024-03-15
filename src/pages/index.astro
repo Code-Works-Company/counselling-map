@@ -1,21 +1,18 @@
 ---
-import Header from '../components/astro/header.astro'
-import Map from '../components/react/Map.jsx'
+import MapContainer from '../components/react/MapContainer.jsx'
+import '../globals.css'
 ---
 
 <html lang='en'>
   <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-    <title>Astro</title>
+    <meta charset='UTF-8' />
+    <title>Counseling Map</title>
+    <link rel='stylesheet' href='node_modules/ol/ol.css' />
+    <link type='image/png' rel='icon' href='/favicon.png' />
   </head>
-  <body>
-    <Header />
-    <h1>Astro</h1>
+  <body class='font-sans'>
     <main>
-      <Map />
+      <MapContainer client:load />
     </main>
   </body>
 </html>

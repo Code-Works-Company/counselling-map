@@ -1,6 +1,7 @@
 ---
 import Header from '../components/astro/header.astro'
 import Map from '../components/react/Map.jsx'
+import Footer from '../components/astro/footer.astro'
 ---
 
 <html lang='en'>
@@ -11,9 +12,10 @@ import Map from '../components/react/Map.jsx'
     <meta name='generator' content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col">
     <Header />
-    <main>
+    <main class="flex-grow">
     </main>
+    <Footer />
   </body>
 </html>

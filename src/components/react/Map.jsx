@@ -28,6 +28,7 @@ export default function Map({ markers, schools, setOpen, setSchool }) {
             source: new StadiaMaps({
               layer: 'alidade_smooth',
               retina: true,
+              apiKey: import.meta.env.PUBlIC_STADIAMAPS_API,
             }),
           }),
           vectorLayer,

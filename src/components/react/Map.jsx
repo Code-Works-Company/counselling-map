@@ -97,7 +97,7 @@ export default function Map({ markers, schools, setOpen, setSchool }) {
     <div
       ref={ref}
       id='map'
-      className='h-[550px] overflow-hidden rounded-none lg:flex-grow'
+      className='h-[550px] max-w-6xl mx-auto overflow-hidden rounded-none lg:flex-grow'
     ></div>
   )
 }

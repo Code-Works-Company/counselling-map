@@ -1,4 +1,7 @@
 ---
+import Header from '../components/astro/header.astro'
+import Map from '../components/react/Map.jsx'
+import Footer from '../components/astro/footer.astro'
 import MapContainer from '../components/react/MapContainer.jsx'
 import '../globals.css'
 ---
@@ -10,9 +13,11 @@ import '../globals.css'
     <link rel='stylesheet' href='node_modules/ol/ol.css' />
     <link type='image/png' rel='icon' href='/favicon.png' />
   </head>
-  <body class='font-sans'>
-    <main>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-grow">
       <MapContainer client:load />
     </main>
+    <Footer />
   </body>
 </html>

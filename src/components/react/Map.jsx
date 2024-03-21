@@ -21,6 +21,8 @@ export default function Map({ markers, schools, setOpen, setSchool }) {
       zoom: 11,
     })
 
+    console.log(import.meta.env.PUBLIC_STADIAMAPS_API)
+
     if (ref.current && !mapRef.current) {
       mapRef.current = new OLMap({
         layers: [
@@ -28,7 +30,7 @@ export default function Map({ markers, schools, setOpen, setSchool }) {
             source: new StadiaMaps({
               layer: 'alidade_smooth',
               retina: true,
-              apiKey: import.meta.env.STADIAMAPS_API,
+              apiKey: import.meta.env.UUSTADIAMAPS_API,
             }),
           }),
           vectorLayer,
